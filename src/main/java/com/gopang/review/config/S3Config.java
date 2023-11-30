@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class S3Config {
 
+    // 괄호 안 프로퍼티 값을 해당 변수에 주입받음
     @Value("${cloud.aws.credentials.access-key}")
     private String accessKey;
 
@@ -22,6 +23,8 @@ public class S3Config {
 
     @Bean
     public AmazonS3Client amazonS3Client() {
+        // AWS의 자격 증명 정보 저장
+        // 액세스 키와 시크릿 키를 사용하여 awsCreds 객체를 생성
         BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
         return (AmazonS3Client) AmazonS3ClientBuilder.standard()
                 .withRegion(region)

@@ -41,5 +41,7 @@ public class ReviewImage implements Serializable {
     @Column(name = "image_path")
     private String imagePath;           // S3에 저장된 경로
 
-
+    @ManyToOne
+    @JoinColumn(name = "review_id")
+    private Review review;
 }

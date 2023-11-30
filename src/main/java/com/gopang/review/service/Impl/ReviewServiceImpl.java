@@ -2,6 +2,7 @@ package com.gopang.review.service.Impl;
 
 import com.gopang.review.domain.Review;
 import com.gopang.review.dto.ReviewDto;
+import com.gopang.review.repository.ReviewRepository;
 import com.gopang.review.service.ReviewService;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,15 @@ import java.util.List;
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
+    private final ReviewRepository reviewRepository;
+
+    public ReviewServiceImpl(ReviewRepository reviewRepository) {
+        this.reviewRepository = reviewRepository;
+    }
+
     @Override
     public List<ReviewDto> findAll() {
+
         return null;
     }
 

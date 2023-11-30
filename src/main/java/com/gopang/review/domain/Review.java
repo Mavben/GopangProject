@@ -48,8 +48,9 @@ public class Review implements Serializable {
     @Column(name = "member_email")
     private String memberEmail;        // 이메일
 
-//    @OneToMany(mappedBy = "review", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private List<ReviewImage> images = new ArrayList<>();
+    @JoinColumn(name ="review_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    List<ReviewImage> images = new ArrayList<>();
 
     public static Object builder() {
         return null;
@@ -99,6 +100,7 @@ public class Review implements Serializable {
     public void setModifiedDate(Date modifiedDate) {
     }
 
+    // 별점
     @Getter
     public enum Star {
         ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5);
