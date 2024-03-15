@@ -1,6 +1,6 @@
 FROM openjdk:17 as build
 
-LABEL maintainer="paail <evrok907@gmail.com>"
+LABEL maintainer="ReviewServer"
 
 ARG JAR_FILE=build/libs/review-0.0.1-SNAPSHOT.jar
 
@@ -17,4 +17,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.gopang.review.ReviewApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.gopang.review.ReviewServerApplication"]

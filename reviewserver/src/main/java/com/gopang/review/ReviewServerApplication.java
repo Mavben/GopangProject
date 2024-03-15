@@ -5,11 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.gopang.review.service")
-public class ReviewserverApplication {
+public class ReviewServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReviewserverApplication.class, args);
+		SpringApplication.run(ReviewServerApplication.class, args);
 	}
 
 }

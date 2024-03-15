@@ -153,6 +153,21 @@ services:
       backend:
         aliases:
           - "oauth2server"
+
+  reviewservice:
+    image: gopang/reviewserver:0.0.1-SNAPSHOT
+    ports:
+      - "8084:8084"
+    depends_on:
+      database:
+        condition: service_healthy
+      configserver:
+        condition: service_started
+    networks:
+      backend:
+        aliases:
+          - "reviewserver"
+
   angular-app:
     image: nginx-server:web-server
     container_name: angular-app
